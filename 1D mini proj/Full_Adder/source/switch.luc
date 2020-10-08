@@ -1,0 +1,15 @@
+module switch (
+	input x, 
+	input y,
+	input z,
+	output a,
+	output b,
+ output c
+  )
+{ 
+  always {
+  a = x;
+  b = y;
+  c = z;
+  }
+}
