@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Full_Adder" board="Alchitry Au" language="Lucid" version="3">
+  <files>
+    <component>reset_conditioner.luc</component>
+    <src>switch.luc</src>
+    <src top="true">au_top.luc</src>
+    <constraint>fulladder.xdc</constraint>
+    <constraint>custom.acf</constraint>
+  </files>
+</project>
