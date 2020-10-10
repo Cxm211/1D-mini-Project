@@ -84,8 +84,10 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  {C:/Users/Xuemeng/Desktop/1D mini proj/Full_Adder/work/vivado/Full_Adder/Full_Adder.srcs/sources_1/imports/verilog/reset_conditioner_2.v}
-  {C:/Users/Xuemeng/Desktop/1D mini proj/Full_Adder/work/vivado/Full_Adder/Full_Adder.srcs/sources_1/imports/verilog/switch_1.v}
+  {C:/Users/Xuemeng/Desktop/1D mini proj/Full_Adder/work/vivado/Full_Adder/Full_Adder.srcs/sources_1/imports/verilog/counter_3.v}
+  {C:/Users/Xuemeng/Desktop/1D mini proj/Full_Adder/work/vivado/Full_Adder/Full_Adder.srcs/sources_1/imports/verilog/edge_detector_4.v}
+  {C:/Users/Xuemeng/Desktop/1D mini proj/Full_Adder/work/vivado/Full_Adder/Full_Adder.srcs/sources_1/imports/verilog/fsmFA_2.v}
+  {C:/Users/Xuemeng/Desktop/1D mini proj/Full_Adder/work/vivado/Full_Adder/Full_Adder.srcs/sources_1/imports/verilog/reset_conditioner_1.v}
   {C:/Users/Xuemeng/Desktop/1D mini proj/Full_Adder/work/vivado/Full_Adder/Full_Adder.srcs/sources_1/imports/verilog/au_top_0.v}
 }
 OPTRACE "Adding files" END { }
@@ -97,8 +99,8 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc {{C:/Users/Xuemeng/Desktop/1D mini proj/Full_Adder/constraint/fulladder.xdc}}
-set_property used_in_implementation false [get_files {{C:/Users/Xuemeng/Desktop/1D mini proj/Full_Adder/constraint/fulladder.xdc}}]
+read_xdc {{C:/Users/Xuemeng/Desktop/1D mini proj/Full_Adder/constraint/cutomised.xdc}}
+set_property used_in_implementation false [get_files {{C:/Users/Xuemeng/Desktop/1D mini proj/Full_Adder/constraint/cutomised.xdc}}]
 
 read_xdc {{C:/Users/Xuemeng/Desktop/1D mini proj/Full_Adder/work/constraint/custom.xdc}}
 set_property used_in_implementation false [get_files {{C:/Users/Xuemeng/Desktop/1D mini proj/Full_Adder/work/constraint/custom.xdc}}]

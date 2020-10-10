@@ -1,0 +1,68 @@
+module fsmFA (
+    input clk,  // clock
+    input rst,  // reset
+    output a,
+    output b, 
+    output c
+  ) {
+  counter slowclock(#SIZE(1), #DIV(25),.clk(clk), .rst(rst));
+  fsm state(.clk(slowclock.value), .rst(rst)) = {A0,A1,A2,A3,A4,A5,A6,A7};  
+  edge_detector slowClockEdge(#RISE(1), #FALL(0), .clk(clk));
+  always {
+    slowClockEdge.in = slowclock.value;
+    state.d = state.q;
+    a = 0;
+    b = 0;
+    c = 0;
+    case(state.q){
+      state.A0:
+        if( slowClockEdge.out == 1)
+          state.d = state.A1;
+        a = 0;
+        b = 0;
+        c = 1;
+      state.A1:
+        if( slowClockEdge.out == 1)
+          state.d = state.A2;
+        a = 0;
+        b = 1;
+        c = 0;
+      state.A2:
+        if( slowClockEdge.out == 1)
+          state.d = state.A3;
+        a = 0;
+        b = 1;
+        c = 1;
+      state.A3:
+        if( slowClockEdge.out == 1)
+          state.d = state.A4;
+        a = 1;
+        b = 0;
+        c = 0;
+      state.A4:
+        if( slowClockEdge.out == 1)
+          state.d = state.A5;
+        a = 1;
+        b = 0;
+        c = 1;
+      state.A5:
+        if( slowClockEdge.out == 1)
+          state.d = state.A6;
+        a = 1;
+        b = 1;
+        c = 0;
+      state.A6:
+        if( slowClockEdge.out == 1)
+          state.d = state.A7;
+        a = 1;
+        b = 1;
+        c = 1;
+      state.A7:
+        if( slowClockEdge.out == 1)
+          state.d = state.A0;
+        a = 0;
+        b = 0;
+        c = 0;
+    
+  }
+}

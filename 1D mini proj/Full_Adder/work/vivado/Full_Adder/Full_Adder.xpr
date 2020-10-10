@@ -6,7 +6,7 @@
 <Project Version="7" Minor="49" Path="C:/Users/Xuemeng/Desktop/1D mini proj/Full_Adder/work/vivado/Full_Adder/Full_Adder.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="bfa2531d15a24032ad55333d53bc8ad6"/>
+    <Option Name="Id" Val="1155b4a2cfd04c04908bb8e9a7507843"/>
     <Option Name="Part" Val="xc7a35tftg256-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -66,19 +66,37 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
-      <File Path="$PSRCDIR/sources_1/imports/verilog/reset_conditioner_2.v">
+      <File Path="$PSRCDIR/sources_1/imports/verilog/counter_3.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/reset_conditioner_2.v"/>
-          <Attr Name="ImportTime" Val="1602158097"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/counter_3.v"/>
+          <Attr Name="ImportTime" Val="1602300275"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/verilog/switch_1.v">
+      <File Path="$PSRCDIR/sources_1/imports/verilog/edge_detector_4.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/switch_1.v"/>
-          <Attr Name="ImportTime" Val="1602158097"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/edge_detector_4.v"/>
+          <Attr Name="ImportTime" Val="1602300275"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/fsmFA_2.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/fsmFA_2.v"/>
+          <Attr Name="ImportTime" Val="1602300275"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/reset_conditioner_1.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/reset_conditioner_1.v"/>
+          <Attr Name="ImportTime" Val="1602300275"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -87,7 +105,7 @@
       <File Path="$PSRCDIR/sources_1/imports/verilog/au_top_0.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/au_top_0.v"/>
-          <Attr Name="ImportTime" Val="1602158097"/>
+          <Attr Name="ImportTime" Val="1602300275"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -101,7 +119,7 @@
     </FileSet>
     <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
       <Filter Type="Constrs"/>
-      <File Path="$PPRDIR/../../../constraint/fulladder.xdc">
+      <File Path="$PPRDIR/../../../constraint/cutomised.xdc">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>

@@ -8,18 +8,20 @@ module au_top (
     output io_seg [8],      // 7-segment LEDs on IO Shield
     output io_sel [4],      // Digit select on IO Shield
     input io_button [5],    // 5 buttons on IO Shield
-    input io_dip [3][8] ,    // DIP switches on IO Shield
-    output customout[3],
-    input customin[2]
+    input io_dip [3][8]  ,   // DIP switches on IO Shield
+    output out[3],
+    input in[2]
   ) {
   
   sig rst;                  // reset signal
-  switch switch;
-  //lightening lightening;
+  
   .clk(clk) {
     // The reset conditioner is used to synchronize the reset signal to the FPGA
     // clock. This ensures the entire FPGA comes out of reset at the same time.
     reset_conditioner reset_cond;
+    .rst(rst){
+      fsmFA fsmFA;
+    }
   }
   
   always {
@@ -34,17 +36,28 @@ module au_top (
     io_seg = 8hff;          // turn segments off
     io_sel = 4hf;           // select no digits
     
-    switch.x = io_dip[0][0];
-    switch.y = io_dip[0][1];
-    switch.z = io_dip[0][2];
-    customout[0] = switch.a;
-    customout[1] = switch.b;
-    customout[2] = switch.c;
-    if( customin[0]) {
-      io_led[2][1] = hFF;
+    //if io_dip[0][7] is low, we test circuit automatically by FSM and clock
+    if(io_dip[0][7] == 0){
+       out[0] = fsmFA.a; 
+       out[1] = fsmFA.b;
+       out[2] = fsmFA.c;
+    }else{// if io_dip[0][7] is high, we test circuit manually by switches
+       out[0] = io_dip[0][0];
+       out[1] = io_dip[0][1];
+       out[2] = io_dip[0][2];
     }
-    if(customin[1]){
-      io_led[2][0] = hFF;
+	//Cout
+    if (in[0]){
+        io_led[0][1] = hFF;
+    }else{
+        io_led[0][1] = h00;
+    }
+	//S
+    if(in[1]){
+        io_led[0][0] = hFF;
+    }
+    else{
+        io_led[0][0] = h00;
     }
   }
 }

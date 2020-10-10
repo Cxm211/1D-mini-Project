@@ -15,35 +15,30 @@ module au_top_0 (
     output reg [3:0] io_sel,
     input [4:0] io_button,
     input [23:0] io_dip,
-    output reg [2:0] customout,
-    input [1:0] customin
+    output reg [2:0] out,
+    input [1:0] in
   );
   
   
   
   reg rst;
   
-  wire [1-1:0] M_switch_a;
-  wire [1-1:0] M_switch_b;
-  wire [1-1:0] M_switch_c;
-  reg [1-1:0] M_switch_x;
-  reg [1-1:0] M_switch_y;
-  reg [1-1:0] M_switch_z;
-  switch_1 switch (
-    .x(M_switch_x),
-    .y(M_switch_y),
-    .z(M_switch_z),
-    .a(M_switch_a),
-    .b(M_switch_b),
-    .c(M_switch_c)
-  );
-  
   wire [1-1:0] M_reset_cond_out;
   reg [1-1:0] M_reset_cond_in;
-  reset_conditioner_2 reset_cond (
+  reset_conditioner_1 reset_cond (
     .clk(clk),
     .in(M_reset_cond_in),
     .out(M_reset_cond_out)
+  );
+  wire [1-1:0] M_fsmFA_a;
+  wire [1-1:0] M_fsmFA_b;
+  wire [1-1:0] M_fsmFA_c;
+  fsmFA_2 fsmFA (
+    .clk(clk),
+    .rst(rst),
+    .a(M_fsmFA_a),
+    .b(M_fsmFA_b),
+    .c(M_fsmFA_c)
   );
   
   always @* begin
@@ -54,17 +49,16 @@ module au_top_0 (
     io_led = 24'h000000;
     io_seg = 8'hff;
     io_sel = 4'hf;
-    M_switch_x = io_dip[0+0+0-:1];
-    M_switch_y = io_dip[0+1+0-:1];
-    M_switch_z = io_dip[0+2+0-:1];
-    customout[0+0-:1] = M_switch_a;
-    customout[1+0-:1] = M_switch_b;
-    customout[2+0-:1] = M_switch_c;
-    if (customin[0+0-:1]) begin
-      io_led[16+1+0-:1] = 8'hff;
-    end
-    if (customin[1+0-:1]) begin
-      io_led[16+0+0-:1] = 8'hff;
+    if (io_dip[0+7+0-:1] == 1'h0) begin
+      out[0+0-:1] = M_fsmFA_a;
+      out[1+0-:1] = M_fsmFA_b;
+      out[2+0-:1] = M_fsmFA_c;
+    end else begin
+      out[0+0-:1] = io_dip[0+0+0-:1];
+      out[1+0-:1] = io_dip[0+1+0-:1];
+      out[2+0-:1] = io_dip[0+2+0-:1];
+      io_led[0+0+0-:1] = io_dip[0+0+0-:1] ^ io_dip[0+1+0-:1] ^ io_dip[0+2+0-:1];
+      io_led[0+1+0-:1] = (io_dip[0+0+0-:1] & io_dip[0+1+0-:1]) | (io_dip[0+0+0-:1] & io_dip[0+2+0-:1]) | (io_dip[0+1+0-:1] & io_dip[0+2+0-:1]);
     end
   end
 endmodule

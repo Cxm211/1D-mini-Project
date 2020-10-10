@@ -136,7 +136,7 @@ OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
   add_files -quiet {{C:/Users/Xuemeng/Desktop/1D mini proj/Full_Adder/work/vivado/Full_Adder/Full_Adder.runs/synth_1/au_top_0.dcp}}
 OPTRACE "read constraints: implementation" START { }
-  read_xdc {{C:/Users/Xuemeng/Desktop/1D mini proj/Full_Adder/constraint/fulladder.xdc}}
+  read_xdc {{C:/Users/Xuemeng/Desktop/1D mini proj/Full_Adder/constraint/cutomised.xdc}}
   read_xdc {{C:/Users/Xuemeng/Desktop/1D mini proj/Full_Adder/work/constraint/custom.xdc}}
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }

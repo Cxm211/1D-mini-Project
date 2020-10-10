@@ -86,9 +86,9 @@ pin io_seg[5] A3;
 pin io_seg[6] A2;
 pin io_seg[7] A49;
 
-pin customout[0] C48;
-pin customout[1] C2;
-pin customout[2] C3;
+pin out[0] C48;
+pin out[1] C2;
+pin out[2] C3;
 
-pin customin[0] C46  pulldown;
-pin customin[1] C45  pulldown;
+pin in[0] C46  pulldown;
+pin in[1] C45  pulldown;
